@@ -1,0 +1,6 @@
+pytest
+ipython
+boto3
+moto
+click
+pyperclip
