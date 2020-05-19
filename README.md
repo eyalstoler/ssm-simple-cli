@@ -14,7 +14,7 @@ Powered by [Boto3] & [Click]!
 
 > The ssm-simple-cli is designated to act primarily as a CLI but it also allows using it as a Python client.
 > Most of the instructions below will help you setup & use the ssm-simple-cli as a plain CLI.
-> If you are interested in using it as a client within Python code you can read more in the [Development](##development) section. 
+> If you are interested in using it as a client within Python code you can read more in the [Development](#development) section. 
 
 ## Installation
 ### Please make sure:
@@ -23,7 +23,7 @@ Powered by [Boto3] & [Click]!
 - You have configured AWS credentials with the neccessary user profile permissions. See [AWS Permissions section](#aws-permissions--credentials) for more information.
 
 ```sh
-$ pip install --editable .
+$ pip install ssm-simple-cli
 ```
 ## Initial Setup
 
@@ -41,7 +41,7 @@ This will require you to enter you AWS account credentials. You can also configu
 $ ssm configure -p <my-desired-aws-profile-name>
 ```
 
-> To read more about multiple AWS profiles support [click here](#####multiple-aws-profile-support!).
+> To read more about multiple AWS profiles support [click here](#multiple-aws-profile-support).
 
 ## Usage
 
@@ -97,7 +97,7 @@ $ aws configure
 
 [Click here](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration-creds) for more information on how to obtain such credentials
 
-Once you have these credentials in place you will be able to [setup](##initial-setup) the ssm-simple-cli.
+Once you have these credentials in place you will be able to [setup](#initial-setup) the ssm-simple-cli.
 
 ##### Multiple AWS Profile Support!
 When you setup the [aws-cli], credentials are stored in a default AWS profile however if you use multiple [named AWS profiles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) the ssm-simple-cli totally supports this!
@@ -122,7 +122,7 @@ This will direct the ssm-simple-cli to use crednetials for this specific named A
 
 ### Permissions
 
-Your user must have the proper permissions in AWS Systems Manager Parameter Store. See [this example](example/aws/policy/README.md) in this repo for more information.
+Your user must have the proper permissions in AWS Systems Manager Parameter Store. See [this example](examples/aws/policy) in this repo for more information.
 
 
 ## Development
