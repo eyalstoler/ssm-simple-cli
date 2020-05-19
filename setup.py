@@ -1,14 +1,26 @@
 from setuptools import setup, find_packages
+import os
+import sys
+
+if sys.version_info[0] < 3:
+    with open('README.md') as f:
+        long_description = f.read()
+else:
+    with open('README.md', encoding='utf-8') as f:
+        long_description = f.read()
+
 
 setup(
-    name='ssm',
-    version='0.1',
+    name='ssm-simple-cli',
+    version='0.1.2',
     license='MIT',
     description = 'A simplistic CLI that works with AWS Systems Manager Parameter Store',
+    long_description = long_description,
+    long_description_content_type='text/markdown',
     author='Eyal Stoler',
     author_email='eyalstoler@gmail.com',
     url='https://github.com/eyalstoler/ssm-simple-cli',
-    download_url='https://github.com/eyalstoler/ssm-simple-cli/archive/v_01.tar.gz',  # I explain this later on
+    download_url='https://github.com/eyalstoler/ssm-simple-cli/archive/v0.1.2.tar.gz',
     keywords=['python', 'cli', 'aws-cli', 'ssm', 'ssm-cli'],
     packages=find_packages(),
     include_package_data=True,

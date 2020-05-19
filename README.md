@@ -125,7 +125,7 @@ This will direct the ssm-simple-cli to use crednetials for this specific named A
 Your user must have the proper permissions in AWS Systems Manager Parameter Store. See [this example](example/aws/policy/README.md) in this repo for more information.
 
 
-## Develpoment
+## Development
 
 ### Running within Python code
 > Can be run in CI!
@@ -146,11 +146,28 @@ config = CliConfiguration('<configuration-file-path>')
 client = SSMClient(config)
 ```
 
+### Testing
+
+ssm-simple-cli utilizes [PyTest], [PyTest Fixtures] and [Moto] to run Unit + Integration Tests.
+
+To run the tests simply type the following in main folder:
+
+```bash
+$ pip install -r requirements.txt
+$ pytest
+
+```
 
 ### Todos
 
  - Add MORE Tests
+ - Add Test coverage and codecov
  - Consider adding "delete" capability (Did not do it since it may be harmful)
+
+
+### Enhancements & Ideas
+
+I'm open to both! Contact me via the details in Github
 
 License
 ----
@@ -163,3 +180,6 @@ MIT
    [aws-cli]: <https://aws.amazon.com/cli>
    [AWS Systems Manager Parameter Store]: <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html>
    [git-repo-url]: <https://github.com/joemccann/dillinger.git>
+   [PyTest]: <https://docs.pytest.org>
+   [PyTest Fixtures]: <https://docs.pytest.org/en/latest/fixture.html#fixture>
+   [Moto]: <http://docs.getmoto.org/en/latest>
