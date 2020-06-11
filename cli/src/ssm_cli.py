@@ -22,7 +22,7 @@ class CliConfiguration:
     DEFAULT_PROFILE_NAME = 'default'
 
     def __init__(self, path):
-        self.config_path = Path(path)
+        self.config_path = Path(str(path))
         self.config = ConfigParser()
 
         self.config.read(self.config_path.expanduser())
