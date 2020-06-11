@@ -1,4 +1,5 @@
 import os
+import unittest
 
 import boto3
 from botocore.exceptions import ClientError
@@ -29,7 +30,7 @@ def aws_credentials(tmpdir):
 @pytest.fixture
 def fake_ssm_cli_config(tmpdir):
     config_tmpdir = tmpdir.join("fake_ssm_credentials_file")
-    config = CliConfiguration(config_tmpdir)
+    config = CliConfiguration(str(config_tmpdir))
     config.setup(**DEFAULT_SSM_CONFIG_PARAMS)
     yield config
 
@@ -83,7 +84,7 @@ def test_should_describe_all_when_no_path_given(fake_ssm_boto_client, fake_ssm_c
 
     client_result = client.describe()
     assert len(client_result) == 2
-    assert client_result == ['some-param1', 'some-param2']
+    unittest.TestCase().assertCountEqual(client_result, ['some-param1', 'some-param2'])
 
 
 def test_should_describe_for_a_specific_given_path(fake_ssm_boto_client, fake_ssm_cli_config):

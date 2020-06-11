@@ -22,10 +22,10 @@ class CliConfiguration:
     DEFAULT_PROFILE_NAME = 'default'
 
     def __init__(self, path):
-        self.config_path = Path(path)
+        self.config_path = Path(str(path))
         self.config = ConfigParser()
 
-        self.config.read(self.config_path.expanduser())
+        self.config.read(str(self.config_path.expanduser()))
 
     def exists(self):
         return self.config_path.expanduser().exists()
@@ -41,7 +41,7 @@ class CliConfiguration:
         with self.config_path.expanduser().open(mode='w') as configfile:
             self.config.write(configfile)
 
-        self.config.read(self.config_path.expanduser())
+        self.config.read(str(self.config_path.expanduser()))
 
     def default_profile(self):
         return self.config[self.DEFAULT_PROFILE_NAME]
